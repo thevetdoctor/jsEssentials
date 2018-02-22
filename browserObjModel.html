@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Browser Object Model</title>
+
+	<style>
+		body {
+			padding: 10px;
+			font-family: monospace;
+			font-size: 18px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+
+	<script>
+		let k = window.navigator, div = document.querySelector('div');
+		// window.location = "http://www.animalworld.com.ng";
+		// window.location = "browserObjModel.html";
+		document.cookie = "name=Obafemi;expires= Fri, 30 Mar 2017 12:00:00 UTC";
+
+		div.innerHTML = '';
+		div.innerHTML += 'App Name: ' + k.appName + '<br><br>';
+		div.innerHTML += 'App Version: ' + k.appVersion + '<br><br>';
+		div.innerHTML += 'App Language: ' + k.language + '<br><br>';
+		div.innerHTML += 'App Platform: ' + k.platform + '<br><br>';
+		div.innerHTML += 'Location: ' + location + '<br><br>';
+		div.innerHTML += 'Location HREF: ' + location.href + '<br><br>';
+		div.innerHTML += location.pathname + '<br><br>';
+		div.innerHTML += window.history + '<br><br>';
+		div.innerHTML += location.href + '<br><br>';
+		console.log(div);
+		console.log(location);
+		console.log(document.cookie);
+		function factors(num) {
+                       var combine = "";
+                               for(var i = 1; num > i; i++) {
+                                   if(num % i == 0)
+                                   combine += i +",";
+
+                               }console.log(combine);
+                           }
+
+                           factors(119);
+	</script>
+</body>
+</html>

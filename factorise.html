@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Factorise</title>
+	<link rel="apple-touch-icon" type="image/png" href="c://users/user/desktop/apple-touch-icon.png">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h2>Get the factors of the number!</h2>
+			<input id="number" type="text" name="factorise" placeholder="Enter a number to factorise...">
+		</div>
+			<p class="result"></p>
+	</div>
+
+	<script>
+		var numb = document.getElementById('number');
+		var factors = document.querySelector('.result');
+
+		function factorise(num){
+		var num = numb.value;
+		var result = [];
+			for(var i = 1; i <= num; i++) {
+				if(num % i  === 0) {
+					result.push(i);
+				}
+			}
+			console.log(result);
+			factors.textContent = 'The factors of ' + num + ' are: '+ result.join(', ') +'.';
+		};
+		numb.addEventListener('change', function(num){
+		 factorise(num)});
+
+		// function sumOfOdds(num) {
+		//   // code here
+		//   let i;
+		//   let odd = [];
+		//   const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+		//   for(i = 0; i <= num; i++){
+		//     if(i % 2 !== 0){
+		//       odd.push(i);
+		//     }
+		//   }
+		//   console.log(odd.reduce(reducer) + ' // ' + '+ ' + odd.join(' + '));
+		// }
+		// sumOfOdds(15);
+
+
+
+	var orderCount = 0;
+
+	function takeOrder(topping, crustType){
+	  orderCount = orderCount + 1;
+	  console.log('Order: ' + crustType + ' pizza topped with ' + topping);
+	}
+	// takeOrder('bacon', 'mayo');
+	// takeOrder('baco', 'may');
+	// takeOrder('bac', 'ma');
+
+	function getSubTotal(itemCount){
+	  return itemCount * 7.5;
+	}
+	// console.log(getSubTotal(orderCount));
+
+	function getTax(){
+	  return getSubTotal(orderCount) * 0.06;
+	}
+
+	function getTotal(){
+	 return getSubTotal(orderCount) + getTax();
+	}
+
+	// console.log(getTotal());
+
+
+
+// 	var myPlaces = [1, 2, 3];
+// var friendPlaces = [3, 4, 5];
+
+// for (var i = 0; i < myPlaces.length; i++) {
+//     console.log(myPlaces[i]);
+
+//   for (var j = 0; j < friendPlaces.length; j++) {
+//         console.log(friendPlaces[j]);
+
+//     if (myPlaces[i] === friendPlaces[j]) {
+//     			console.log('Match: ' + myPlaces[i]);
+// 				}
+//     }
+// }
+
+
+
+// var cards = ['Diamond', 'Spade', 'Heart', 'Club'];
+
+// // var currentCard = 'Heart';
+
+// var n = 4;
+// var currentCard = 'First';
+// while ((currentCard !== 'Spade') && (n>=0)) {
+//   var randomNumber = Math.floor(Math.random() * n);
+//   console.log(randomNumber);
+
+//   currentCard = cards[randomNumber];
+//   console.log(currentCard);
+
+
+
+
+
+//   cards.splice(randomNumber, 1);
+//   console.log(cards);
+//   n--;
+//   console.log(randomNumber);
+// }
+
+// console.log('Found a Spade!');
+
+	</script>
+</body>
+</html>
