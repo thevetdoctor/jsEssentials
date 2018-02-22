@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stopwatch App</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<style>
+		body, .jumbotron {
+			padding: 30px;
+		}
+		.timer {
+			font-size: 120px;
+		}
+	</style>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+	<h3>Welcome to my Stopwatch!</h3>
+	<!-- timer -->
+
+	<div class="timer">
+		<span class="minutes">00</span>:<span class="seconds">00</span>
+	</div>
+	<div class="timer-buttons">
+		<button class="btn btn-lg btn-success" data-action="start">
+			Start
+		</button>
+		<button class="btn btn-lg btn-danger" data-action="stop">
+			Stop
+		</button>
+		<button class="btn btn-link btn-block" data-action="reset">
+			Reset
+		</button>
+	</div>
+
+
+</div>
+
+<script>
+
+	// Grab the handle of the DOM
+
+	const startBtn = document.querySelector('[data-action="start"]');
+	const stopBtn = document.querySelector('[data-action="stop"]');
+	const resetBtn = document.querySelector('[data-action="reset"]');
+	const minutes = document.querySelector('.minutes');
+	const seconds = document.querySelector('.seconds');
+	let timerTime = 0;
+	let isRunning = false;
+	let interval ;
+
+
+	// Create the required functions
+
+	function startTimer(){
+
+		if (isRunning) return;
+
+		isRunning = true;
+		interval = setInterval(incrementTimer, 1000);
+	}
+
+	function stopTimer(){
+
+		if(!isRunning) return;
+
+		isRunning = false;
+		clearInterval(interval);
+	}
+
+	function resetTimer(){
+		stopTimer();
+
+		timerTime = 0;
+		minutes.innerText = '00';
+		seconds.innerText = '00';
+	}
+
+	function incrementTimer(){
+			timerTime++;
+
+				const numOfMins = Math.floor(timerTime/60);
+				const numOfSecs = timerTime % 60;
+
+				minutes.innerText = pad(numOfMins);
+				seconds.innerText = pad(numOfSecs);
+
+				console.log(numOfMins, numOfSecs);
+	}
+
+	function pad(number){
+		return (number < 10) ? '0' + number : number;
+	}
+
+		// Set event listeners
+
+		startBtn.addEventListener('click', startTimer);
+		stopBtn.addEventListener('click', stopTimer);
+		resetBtn.addEventListener('click', resetTimer);
+
+
+
+</script>
+</body>
+</html>
